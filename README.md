@@ -1,5 +1,7 @@
 # Online Meeting Invitation Code Verification System (iframe Integration)
 
+[中文文档](README-CN.md) | [English Documentation](README.md)
+
 This is an invitation code verification system for online meetings that ensures only users with valid invitation codes can access the online meeting system. The system integrates Jitsi Meet using iframe technology, allowing users to use meeting features directly on the current page without redirecting to external pages.
 
 ## Features
@@ -160,8 +162,6 @@ The system supports both Chinese and English languages:
 - Language switching is available on all pages
 - Language preference is stored in session and cookies
 - All text and error messages are localized
-- [中文文档](README-CN.md) | [English Documentation](README.md)
-
 ## Common Issues
 
 ### Q: Invitation code verification failed?
