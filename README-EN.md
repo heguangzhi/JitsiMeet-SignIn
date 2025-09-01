@@ -113,8 +113,8 @@ $admin_password = 'your_secure_password'; // Please change to a secure password
 │   └── init.sql           # Database initialization script
 ├── logs/
 │   └── meeting_access.log # Meeting room access logs
-├── README.md              # Documentation (Chinese)
-├── README-EN.md           # Documentation (English)
+├── README.md              # Documentation (English)
+├── README-CN.md           # Documentation (Chinese)
 └── INSTALL-EN.md          # Installation guide (English)
 ```
 

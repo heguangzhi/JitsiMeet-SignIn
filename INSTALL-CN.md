@@ -1,11 +1,3 @@
-# Jitsi Meet Invitation Code System - Installation & Permissions Configuration Guide
-
-[中文版本](INSTALL-CN.md)
-
-This document has been moved to [INSTALL-EN.md](INSTALL-EN.md) for better organization.
-
-Please refer to the English version for complete installation instructions and configuration guidelines.
-
 # Jitsi Meet 邀请码系统 - 安装与权限配置指南
 
 [English Version](INSTALL-EN.md)
@@ -220,10 +212,10 @@ if (SessionConfig::init()) {
 
 ## 支持
 
-If still encountering issues, please provide the following information:
-- Server OS version
-- PHP version (`php -v`)
-- Web server type and version
-- Specific error log content
+如果仍然遇到问题，请提供以下信息：
+- 服务器操作系统版本
+- PHP 版本 (`php -v`)
+- Web 服务器类型和版本
+- 具体的错误日志内容
 
-With the above configuration, the session permission issues should be resolved.
+通过以上配置，应该可以完全解决您遇到的会话权限问题。

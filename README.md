@@ -1,179 +1,182 @@
-# 在线会议邀请码验证系统（iframe集成版）
+# Online Meeting Invitation Code Verification System (iframe Integration)
 
-[English Version](README-EN.md)
+This is an invitation code verification system for online meetings that ensures only users with valid invitation codes can access the online meeting system. The system integrates Jitsi Meet using iframe technology, allowing users to use meeting features directly on the current page without redirecting to external pages.
 
-这是一个用于在线会议的邀请码验证系统，确保只有拥有有效邀请码的用户才能访问在线会议系统。系统采用 iframe 方式集成 Jitsi Meet，用户无需跳转到外部页面即可直接在当前页面中使用会议功能。
+## Features
 
-## 功能特性
+- ✅ Invitation Code Verification: Users must enter valid invitation codes to access online meetings
+- ✅ iframe Integration: Seamlessly embed Jitsi Meet without page redirects
+- ✅ Meeting Room Management: Create new meeting rooms or join existing ones
+- ✅ Recommended Meeting Rooms: Provide suggestions for commonly used meeting room names
+- ✅ Meeting Room Sharing: One-click copy meeting room share links
+- ✅ Fullscreen Support: Support fullscreen display of meeting interface
+- ✅ Admin Interface: Generate, manage, enable/disable invitation codes
+- ✅ Expiration Time Setting: Support setting invitation code expiration times
+- ✅ Usage Records: Record invitation code and meeting room usage
+- ✅ Responsive Design: Support both mobile and desktop access
+- ✅ Security Verification: Prevent unauthorized access
 
-- ✅ 邀请码验证：用户必须输入有效邀请码才能访问在线会议
-- ✅ iframe 集成：无缝嵌入 Jitsi Meet，无需页面跳转
-- ✅ 会议室管理：创建新会议室或加入现有会议室
-- ✅ 推荐会议室：提供常用的会议室名称建议
-- ✅ 会议室分享：一键复制会议室分享链接
-- ✅ 全屏支持：支持会议界面全屏显示
-- ✅ 管理界面：生成、管理、启用/禁用邀请码
-- ✅ 过期时间设置：支持设置邀请码过期时间
-- ✅ 使用记录：记录邀请码和会议室的使用情况
-- ✅ 响应式设计：支持手机和电脑访问
-- ✅ 安全验证：防止未授权访问
+## System Requirements
 
-## 系统要求
+- PHP 7.4 or higher
+- MySQL 5.7 or higher
+- Web server (Apache/Nginx)
 
-- PHP 7.4 或更高版本
-- MySQL 5.7 或更高版本
-- Web 服务器（Apache/Nginx）
+## Installation Steps
 
-## 安装步骤
+### 1. Database Setup
 
-### 1. 数据库设置
-
-1. 创建 MySQL 数据库
-2. 导入 `sql/init.sql` 文件来创建数据表
+1. Create a MySQL database
+2. Import the `sql/init.sql` file to create data tables
 ```sql
 mysql -u root -p < sql/init.sql
 ```
 
-### 2. 配置数据库连接
+### 2. Configure Database Connection
 
-编辑 `config/database.php` 文件，修改数据库连接信息：
-
-```php
-private $host = 'localhost';        // 数据库主机
-private $db_name = 'jitsi_invite_system'; // 数据库名
-private $username = 'root';         // 数据库用户名
-private $password = '';             // 数据库密码
-```
-
-### 3. 配置Web服务器
-
-将项目文件部署到Web服务器目录，确保：
-- `index.php` 作为入口文件可访问（对应 https://example.com）
-- `admin.php` 管理界面可访问
-- `assets/` 目录可访问（CSS和JS文件）
-
-### 4. 修改管理员密码
-
-编辑 `admin.php` 文件，修改管理员密码：
+Edit the `config/database.php` file and modify the database connection information:
 
 ```php
-$admin_password = 'your_secure_password'; // 请修改为安全密码
+private $host = 'localhost';        // Database host
+private $db_name = 'jitsi_invite_system'; // Database name
+private $username = 'root';         // Database username
+private $password = '';             // Database password
 ```
 
-## 使用说明
+### 3. Configure Web Server
 
-### 用户访问流程
+Deploy project files to the web server directory, ensuring:
+- `index.php` as the entry file is accessible (corresponds to https://example.com)
+- `admin.php` admin interface is accessible
+- `assets/` directory is accessible (CSS and JS files)
 
-1. 用户访问 `https://example.com`（您的验证页面）
-2. 输入邀请码
-3. 验证成功后进入会议室选择页面
-4. 选择创建新会议室或加入现有会议室
-5. 直接在当前页面中使用在线会议功能
+### 4. Modify Administrator Password
 
-#### 会议室功能
-- 创建新会议室：系统自动生成唯一会议室名称
-- 加入现有会议室：输入会议室名称加入
-- 推荐会议室：选择系统推荐的常用会议室名称
-- 分享会议室：一键复制会议室分享链接
-- 全屏模式：支持会议界面全屏显示
+Edit the `admin.php` file and modify the administrator password:
 
-### 管理员操作
+```php
+$admin_password = 'your_secure_password'; // Please change to a secure password
+```
 
-1. 访问 `admin.php` 页面
-2. 输入管理员密码登录
-3. 可以进行以下操作：
-   - 生成新邀请码
-   - 设置邀请码过期时间
-   - 启用/禁用邀请码
-   - 删除邀请码
-   - 查看使用记录
+## Usage Instructions
 
-## 文件结构
+### User Access Flow
+
+1. User visits `https://example.com` (your verification page)
+2. Enter invitation code
+3. After successful verification, enter meeting room selection page
+4. Choose to create a new meeting room or join an existing one
+5. Use online meeting features directly on the current page
+
+#### Meeting Room Features
+- Create New Meeting Room: System automatically generates unique meeting room names
+- Join Existing Meeting Room: Enter meeting room name to join
+- Recommended Meeting Rooms: Select commonly used meeting room names recommended by the system
+- Share Meeting Room: One-click copy meeting room share links
+- Fullscreen Mode: Support fullscreen display of meeting interface
+
+### Administrator Operations
+
+1. Visit the `admin.php` page
+2. Enter administrator password to login
+3. Available operations:
+   - Generate new invitation codes
+   - Set invitation code expiration times
+   - Enable/disable invitation codes
+   - Delete invitation codes
+   - View usage records
+
+## File Structure
 
 ```
 /
-├── index.php              # 邀请码验证入口页面
-├── verify.php             # 邀请码验证处理脚本
-├── meeting.php            # 会议室页面（iframe集成）
-├── admin.php              # 管理界面
-├── logout.php             # 登出功能
+├── index.php              # Invitation code verification entry page
+├── verify.php             # Invitation code verification processing script
+├── meeting.php            # Meeting room page (iframe integration)
+├── admin.php              # Admin interface
+├── logout.php             # Logout functionality
 ├── config/
-│   ├── database.php       # 数据库配置
-│   └── jitsi.php          # Jitsi Meet 配置
+│   ├── database.php       # Database configuration
+│   ├── language.php       # Multi-language support
+│   └── jitsi.php          # Jitsi Meet configuration
 ├── models/
-│   ├── InviteCode.php     # 邀请码管理类
-│   └── MeetingRoom.php    # 会议室管理类
+│   ├── InviteCode.php     # Invitation code management class
+│   └── MeetingRoom.php    # Meeting room management class
 ├── assets/
 │   ├── css/
-│   │   ├── style.css      # 主页面样式
-│   │   ├── admin.css      # 管理界面样式
-│   │   └── meeting.css    # 会议室页面样式
+│   │   ├── style.css      # Main page styles
+│   │   ├── admin.css      # Admin interface styles
+│   │   └── meeting.css    # Meeting room page styles
 │   └── js/
-│       └── admin.js       # 管理界面脚本
+│       └── admin.js       # Admin interface scripts
 ├── sql/
-│   └── init.sql           # 数据库初始化脚本
+│   └── init.sql           # Database initialization script
 ├── logs/
-│   └── meeting_access.log # 会议室访问日志
-└── README.md              # 说明文档
+│   └── meeting_access.log # Meeting room access logs
+├── README.md              # Documentation (English)
+├── README-CN.md           # Documentation (Chinese)
+└── INSTALL-EN.md          # Installation guide (English)
 ```
 
-## 多语言支持
+## Security Considerations
 
-系统支持中英文双语切换：
+1. **Change Default Password**: Be sure to change the default administrator password in `admin.php`
+2. **Database Security**: Ensure database user permissions are minimized
+3. **HTTPS**: It's recommended to use HTTPS in production environments
+4. **Access Control**: Consider adding IP whitelist for admin interface
 
-- 所有页面均提供语言切换按钮
-- 语言偏好设置会保存在会话和Cookie中
-- 所有文本和错误信息均已本地化
-- [中文文档](README.md) | [English Documentation](README-EN.md)
+## Custom Configuration
 
-1. **修改默认密码**：请务必修改 `admin.php` 中的默认管理员密码
-2. **数据库安全**：确保数据库用户权限最小化
-3. **HTTPS**：建议在生产环境中使用 HTTPS
-4. **访问控制**：可以考虑为管理界面添加IP白名单
+### Jitsi Meet Configuration
+Edit the [`config/jitsi.php`](config/jitsi.php) file to customize:
+- **Domain Settings**: Modify the `JITSI_DOMAIN` constant
+- **iframe Configuration**: Adjust `IFRAME_CONFIG` options
+- **Interface Configuration**: Customize `INTERFACE_CONFIG` toolbar and settings
+- **Meeting Room Validation Rules**: Modify `ROOM_NAME_RULES`
 
-## 自定义配置
+### Modify Redirect URL
 
-### Jitsi Meet 配置
-编辑 [`config/jitsi.php`](config/jitsi.php) 文件可以自定义：
-- **域名设置**：修改 `JITSI_DOMAIN` 常量
-- **iframe 配置**：调整 `IFRAME_CONFIG` 选项
-- **界面配置**：自定义 `INTERFACE_CONFIG` 工具栏和设置
-- **会议室验证规则**：修改 `ROOM_NAME_RULES`
-
-### 修改跳转URL
-
-在 `verify.php` 文件中修改跳转地址：
+Modify the redirect address in the `verify.php` file:
 
 ```php
-// 跳转到会议室选择页面
+// Redirect to meeting room selection page
 header('Location: meeting.php');
 ```
 
-### 修改邀请码生成规则
+### Modify Invitation Code Generation Rules
 
-在 `models/InviteCode.php` 文件的 `generateRandomCode()` 方法中修改生成规则。
+Modify the generation rules in the `generateRandomCode()` method of the `models/InviteCode.php` file.
 
-### 样式自定义
+### Style Customization
 
-- 修改 `assets/css/style.css` 自定义验证页面样式
-- 修改 `assets/css/meeting.css` 自定义会议室页面样式
-- 修改 `assets/css/admin.css` 自定义管理界面样式
+- Modify `assets/css/style.css` to customize verification page styles
+- Modify `assets/css/meeting.css` to customize meeting room page styles
+- Modify `assets/css/admin.css` to customize admin interface styles
 
-## 常见问题
+## Language Support
 
-### Q: 邀请码验证失败？
-A: 检查数据库连接配置，确保邀请码存在且状态为有效。
+The system supports both Chinese and English languages:
 
-### Q: 管理界面无法访问？
-A: 检查管理员密码是否正确，确保数据库连接正常。
+- Language switching is available on all pages
+- Language preference is stored in session and cookies
+- All text and error messages are localized
+- [中文文档](README-CN.md) | [English Documentation](README-EN.md)
 
-### Q: 样式显示异常？
-A: 确保 `assets/` 目录可以被Web服务器访问。
+## Common Issues
 
-## 支持与维护
+### Q: Invitation code verification failed?
+A: Check database connection configuration, ensure invitation code exists and status is valid.
 
-如需技术支持或功能定制，请联系开发团队。
+### Q: Admin interface inaccessible?
+A: Check if administrator password is correct, ensure database connection is normal.
 
-## 许可证
+### Q: Style display issues?
+A: Ensure `assets/` directory is accessible by the web server.
 
-本项目仅供内部使用，请勿用于商业用途。
+## Support & Maintenance
+
+For technical support or feature customization, please contact the development team.
+
+## License
+
+This project is for internal use only, please do not use for commercial purposes.
