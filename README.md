@@ -160,7 +160,7 @@ The system supports both Chinese and English languages:
 - Language switching is available on all pages
 - Language preference is stored in session and cookies
 - All text and error messages are localized
-- [中文文档](README-CN.md) | [English Documentation](README-EN.md)
+- [中文文档](README-CN.md) | [English Documentation](README.md)
 
 ## Common Issues
 

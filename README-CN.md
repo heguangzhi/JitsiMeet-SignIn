@@ -160,7 +160,7 @@ header('Location: meeting.php');
 - 所有页面都提供语言切换功能
 - 语言偏好存储在会话和Cookie中
 - 所有文本和错误信息都已本地化
-- [English Documentation](README-EN.md) | [中文文档](README-CN.md)
+- [English Documentation](README-EN.md) | [中文文档](README.md)
 
 ## 常见问题
 
