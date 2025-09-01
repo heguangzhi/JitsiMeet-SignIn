@@ -1,0 +1,543 @@
+/* 会议室页面样式 */
+/* Meeting room page styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* 会议室选择界面样式 */
+/* Meeting room selection interface styles */
+.meeting-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+}
+
+.meeting-box {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+    position: relative;
+}
+
+/* 语言切换按钮 */
+/* Language switch button */
+.language-switch {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
+}
+
+.language-switch a {
+    color: #667eea;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border: 1px solid #667eea;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.language-switch a:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-1px);
+}
+
+.meeting-box h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.welcome-text {
+    color: #7f8c8d;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.error-message {
+    background: #ff6b6b;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.meeting-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.option-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.option-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.option-card h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.option-card p {
+    color: #7f8c8d;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.btn-primary, .btn-secondary {
+    width: 100%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(40, 167, 69, 0.3);
+}
+
+.join-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    text-align: left;
+}
+
+.room-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e1e8ed;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+    outline: none;
+}
+
+.room-input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.session-info {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.logout-link {
+    color: #dc3545;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.logout-link:hover {
+    text-decoration: underline;
+}
+
+/* 推荐会议室样式 */
+/* Recommended meeting rooms styles */
+.suggested-rooms {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.suggested-rooms h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.suggested-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.suggested-form {
+    display: inline-block;
+}
+
+.btn-suggested {
+    background: rgba(255, 255, 255, 0.9);
+    color: #667eea;
+    border: 2px solid #667eea;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-suggested:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* Jitsi iframe界面样式 */
+.jitsi-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #2c3e50;
+}
+
+.meeting-header {
+    background: #34495e;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    position: relative;
+}
+
+/* 会议室页面语言切换 */
+.meeting-header .language-switch {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+}
+
+.meeting-header .language-switch a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 8px;
+    border: 1px solid #ecf0f1;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: rgba(236, 240, 241, 0.1);
+}
+
+.meeting-header .language-switch a:hover {
+    background: rgba(236, 240, 241, 0.2);
+    transform: translateY(-1px);
+}
+
+.meeting-info h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.meeting-status {
+    background: #28a745;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.meeting-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.btn-control {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-control:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+.btn-control.logout {
+    background: #dc3545;
+}
+
+.btn-control.logout:hover {
+    background: #c82333;
+}
+
+.jitsi-frame-container {
+    flex: 1;
+    position: relative;
+    background: #2c3e50;
+}
+
+#jitsiFrame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: white;
+}
+
+/* 加载指示器 */
+.loading-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 10;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-indicator p {
+    font-size: 16px;
+    margin: 0;
+}
+
+/* 图标样式 */
+.icon {
+    font-size: 18px;
+    margin-right: 8px;
+}
+
+/* 全屏模式下的样式调整 */
+.jitsi-frame-container:fullscreen {
+    background: black;
+}
+
+.jitsi-frame-container:fullscreen #jitsiFrame {
+    background: black;
+}
+
+.jitsi-frame-container.fullscreen-mode {
+    background: black;
+}
+
+.jitsi-frame-container.fullscreen-mode #jitsiFrame {
+    background: black;
+}
+
+/* WebKit 全屏支持 */
+.jitsi-frame-container:-webkit-full-screen {
+    background: black;
+}
+
+.jitsi-frame-container:-webkit-full-screen #jitsiFrame {
+    background: black;
+}
+
+/* Mozilla 全屏支持 */
+.jitsi-frame-container:-moz-full-screen {
+    background: black;
+}
+
+.jitsi-frame-container:-moz-full-screen #jitsiFrame {
+    background: black;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .meeting-container {
+        padding: 10px;
+    }
+    
+    .meeting-box {
+        padding: 30px 20px;
+    }
+    
+    .meeting-box h1 {
+        font-size: 28px;
+    }
+    
+    .meeting-options {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .option-card {
+        padding: 25px;
+    }
+    
+    .meeting-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        padding: 15px;
+    }
+    
+    .meeting-controls {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .btn-control {
+        font-size: 11px;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .meeting-box {
+        padding: 25px 15px;
+    }
+    
+    .meeting-box h1 {
+        font-size: 24px;
+    }
+    
+    .option-card {
+        padding: 20px;
+    }
+    
+    .btn-primary, .btn-secondary {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+    
+    .meeting-header {
+        padding: 10px;
+    }
+    
+    .meeting-info h2 {
+        font-size: 16px;
+    }
+    
+    .btn-control {
+        font-size: 10px;
+        padding: 5px 10px;
+    }
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.meeting-box {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.option-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.option-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+/* 通知样式 */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    z-index: 1000;
+    font-weight: 500;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* iframe 安全性增强 */
+#jitsiFrame {
+    /* 确保iframe能够正常加载Jitsi Meet */
+    width: 100%;
+    height: 100%;
+    border: 0;
+    overflow: hidden;
+}
